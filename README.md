@@ -5,5 +5,5 @@ sdk: streamlit
 emoji: 🐢
 colorFrom: purple
 colorTo: purple
-short_description: Search Engine withLLM
+short_description: Search Engine with LLM
 ---
