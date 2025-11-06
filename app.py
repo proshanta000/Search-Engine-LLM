@@ -1,3 +1,4 @@
+# Important libraries
 import os
 import streamlit as st
 from langchain_groq import ChatGroq
@@ -12,7 +13,7 @@ from langgraph.checkpoint.memory import MemorySaver
 
 from dotenv import load_dotenv
 
-#code
+#code 
 ## code
 load_dotenv()
 
@@ -25,11 +26,11 @@ wiki = WikipediaQueryRun(api_wrapper=wiki_wrapper)
 
 # Create the DuckDuckGo tool correctly to bypass import/validation issues.
 # 1. Instantiate the API Wrapper (NO 'name' ARGUMENT HERE)
-search_wrapper = DuckDuckGoSearchAPIWrapper() 
+search_wrapper_duckduck = DuckDuckGoSearchAPIWrapper() 
 
 # 2. Wrap the API Wrapper's run function into a Tool (SET 'name' HERE)
 search = Tool.from_function(
-    func=search_wrapper.run,
+    func=search_wrapper_duckduck.run,
     name="Search",
     description="A tool for performing general web searches using DuckDuckGo."
 )
