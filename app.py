@@ -2,7 +2,7 @@ import os
 import streamlit as st
 from langchain_groq import ChatGroq
 import uuid # CRITICAL: For generating a unique thread ID
-from langchain_core.tools import Tool # FIX: Corrected import location for Tool
+from langchain_core.tools import Tool #  Corrected import location for Tool
 from langchain_community.utilities import ArxivAPIWrapper, WikipediaAPIWrapper, DuckDuckGoSearchAPIWrapper
 from langchain_community.tools import ArxivQueryRun, WikipediaQueryRun
 from langchain_community.callbacks import StreamlitCallbackHandler
@@ -123,3 +123,4 @@ if prompt := st.chat_input(placeholder="what is machine learning?"):
             st.error(error_message)
             st.session_state.messages.append({"role": "assistant", "content": error_message})
             st.write(error_message)
+
