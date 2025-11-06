@@ -12,6 +12,8 @@ from langgraph.checkpoint.memory import MemorySaver
 
 from dotenv import load_dotenv
 
+#code
+## code
 load_dotenv()
 
 # --- 1. Tool Setup ---
@@ -123,4 +125,5 @@ if prompt := st.chat_input(placeholder="what is machine learning?"):
             st.error(error_message)
             st.session_state.messages.append({"role": "assistant", "content": error_message})
             st.write(error_message)
+
 
