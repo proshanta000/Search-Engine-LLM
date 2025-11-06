@@ -3,7 +3,7 @@ import streamlit as st
 from langchain_groq import ChatGroq
 import uuid # CRITICAL: For generating a unique thread ID
 from langchain_core.tools import Tool # FIX: Corrected import location for Tool
-from langchain_community.utilities import ArxivAPIWrapper, WikipediaAPIWrapper, DuckDuckGoSearchAPIWrapper
+from langchain_community.utilities import ArxivAPIWrapper, WikipediaAPIWrapper
 from langchain_community.tools import ArxivQueryRun, WikipediaQueryRun
 from langchain_community.callbacks import StreamlitCallbackHandler
 from langchain.agents import create_agent 
@@ -21,18 +21,11 @@ arxiv = ArxivQueryRun(api_wrapper=arxiv_wrapper)
 wiki_wrapper = WikipediaAPIWrapper(top_k_results=1, doc_content_chars_max=200)
 wiki = WikipediaQueryRun(api_wrapper=wiki_wrapper)
 
-# Create the DuckDuckGo tool correctly to bypass import/validation issues.
-# 1. Instantiate the API Wrapper (NO 'name' ARGUMENT HERE)
-search_wrapper = DuckDuckGoSearchAPIWrapper() 
 
-# 2. Wrap the API Wrapper's run function into a Tool (SET 'name' HERE)
-search = Tool.from_function(
-    func=search_wrapper.run,
-    name="Search",
-    description="A tool for performing general web searches using DuckDuckGo."
-)
 
-ALL_TOOLS = [search, arxiv, wiki]
+
+
+ALL_TOOLS = [arxiv, wiki]
 SYSTEM_PROMPT = "You are a helpful, expert AI assistant with access to various external tools like web search, Arxiv, and Wikipedia. Use these tools when necessary to answer user questions, especially for real-time information or specific academic queries."
 
 # --- 2. Streamlit UI Setup ---
@@ -123,3 +116,4 @@ if prompt := st.chat_input(placeholder="what is machine learning?"):
             st.error(error_message)
             st.session_state.messages.append({"role": "assistant", "content": error_message})
             st.write(error_message)
+
