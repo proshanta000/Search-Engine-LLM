@@ -11,3 +11,5 @@ duckduckgo-search
 duckdb
 langchain_classic
 ddg-scraper
+ddgs
+ddg
