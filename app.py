@@ -58,8 +58,10 @@ def initialize_agent_executor(api_key: str, tools: list):
         model = ChatGroq(groq_api_key=api_key, model=MODEL_NAME, streaming=True)
         memory = MemorySaver()
         SYSTEM_PROMPT = (
-            "You are a helpful, expert AI assistant with access to various external tools "
-            "like web search, Arxiv, and Wikipedia. Use these tools when necessary."
+            "You are a helpful, expert AI assistant with access to specific external tools: "
+            "'duckduckgo_search', 'arxiv_search', and 'wikipedia_search'. "
+            "You MUST use 'duckduckgo_search' for general web searches. "
+            "DO NOT attempt to use 'brave_search' or any other tool not listed here."
         )
         # Attempt to create agent with prompt (newer langgraph versions)
         try:
