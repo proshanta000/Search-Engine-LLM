@@ -64,7 +64,7 @@ def initialize_agent_executor(api_key: str, tools: list):
         agent_executor = create_react_agent(
             model=model, 
             tools=tools, 
-            system_prompt=SYSTEM_PROMPT,
+            state_modifier=SYSTEM_PROMPT,
             checkpointer=memory,
         )
         st.session_state["agent_executor"] = agent_executor
