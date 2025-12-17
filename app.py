@@ -164,11 +164,10 @@ def main():
                 thought_container = st.container() 
                 st_cb = StreamlitCallbackHandler(thought_container, expand_new_thoughts=True)
                 
-                langchain_messages = convert_messages_to_langchain(st.session_state.messages)
-                
+            
                 try:
                     response = agent_executor.invoke(
-                        {"messages": langchain_messages},
+                        {"messages": [HumanMessage(content=prompt)]},
                         config={
                             "callbacks": [st_cb],
                             "configurable": {"thread_id": st.session_state["thread_id"]}
