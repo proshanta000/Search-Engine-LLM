@@ -61,12 +61,22 @@ def initialize_agent_executor(api_key: str, tools: list):
             "You are a helpful, expert AI assistant with access to various external tools "
             "like web search, Arxiv, and Wikipedia. Use these tools when necessary."
         )
-        agent_executor = create_react_agent(
-            model=model, 
-            tools=tools, 
-            state_modifier=SYSTEM_PROMPT,
-            checkpointer=memory,
-        )
+        # Attempt to create agent with prompt (newer langgraph versions)
+        try:
+            agent_executor = create_react_agent(
+                model=model, 
+                tools=tools, 
+                prompt=SYSTEM_PROMPT,
+                checkpointer=memory,
+            )
+        except TypeError:
+            # Fallback for older langgraph versions
+            agent_executor = create_react_agent(
+                model=model, 
+                tools=tools, 
+                messages_modifier=SYSTEM_PROMPT,
+                checkpointer=memory,
+            )
         st.session_state["agent_executor"] = agent_executor
         return agent_executor
     except Exception as e:
