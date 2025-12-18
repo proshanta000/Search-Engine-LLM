@@ -37,7 +37,7 @@ class LoadStreamlitUI:
                 st.session_state["GROQ_API_KEY"] = groq_key
 
                 if not groq_key:
-                    st.warning("⚠️ Enter GROQ API Key: [Get it here](https://console.groq.com/keys)")
+                    st.warning("⚠️ Enter GROQ API Key. If You don't have one: [Get it here](https://console.groq.com/keys)")
             
             elif self.user_controls["selected_llm"] == "Gemini":
                 model_options = self.config.get_gemini_model_options()
@@ -50,7 +50,7 @@ class LoadStreamlitUI:
                 st.session_state["GEMINI_API_KEY"] = gemini_key
 
                 if not gemini_key:
-                    st.warning("⚠️ Enter Gemini API Key: [Get it here](https://aistudio.google.com/api-keys)")
+                    st.warning("⚠️ Enter Gemini API Key. If You don't have one: [Get it here](https://aistudio.google.com/api-keys)")
 
             st.divider()
             

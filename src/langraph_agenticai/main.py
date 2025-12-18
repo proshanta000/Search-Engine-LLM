@@ -40,7 +40,20 @@ def load_langgraph_agenticai_app():
             display.display_result_on_ui()
             
         except Exception as e:
-            st.error(f"Application Error: {e}")
+            # Capture the error message as a string
+            error_msg = str(e)
+            
+            # Custom check for both Groq and Gemini API keys
+            if "'GROQ_API_KEY'" in error_msg or "'GEMINI_API_KEY'" in error_msg:
+                st.error("⚠️ **You didn't enter the API key.**")
+                st.info("""
+                **Please enter the API key:**
+                * The **API and Configuration** section is located in the **left pane**.
+                * **Mobile Users:** If you are on a small screen, please click the **arrow ( >> )** icon at the top-left corner to open the configuration sidebar.
+                """)
+            else:
+                # Standard error display for other exceptions
+                st.error(f"Application Error: {e}")
     else:
         # Just show history if the user hasn't typed anything new
         display.display_result_on_ui()
