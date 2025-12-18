@@ -7,11 +7,6 @@ langchain-google-genai
 langchain-openai
 faiss-cpu
 streamlit
-ddgs
-<<<<<<< HEAD
+tavily-python
 wikipedia
 Arxiv
-=======
-ddg
-langchain_google_genai
->>>>>>> b8b247b2dceece935fbe1321f82cb9eee537bfa1
