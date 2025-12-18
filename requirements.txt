@@ -10,4 +10,7 @@ streamlit
 tavily-python
 wikipedia
 Arxiv
-DDGS
+ddg-scraper
+ddgs
+ddg
+
