@@ -1,16 +1,17 @@
 langchain
-python-dotenv
+langgraph
 langchain-community
-arxiv
-wikipedia
-langchain-huggingface
-streamlit
-langchain-groq
 langchain-core
-duckduckgo-search
-duckdb
-langchain_classic
-ddg-scraper
+langchain-groq
+langchain-google-genai
+langchain-openai
+faiss-cpu
+streamlit
 ddgs
+<<<<<<< HEAD
+wikipedia
+Arxiv
+=======
 ddg
 langchain_google_genai
+>>>>>>> b8b247b2dceece935fbe1321f82cb9eee537bfa1
