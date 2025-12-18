@@ -1,9 +1,10 @@
 ---
-license: apache-2.0
-title: Search Engine
+title: ScholarStream
+emoji: 🎓
+colorFrom: blue
+colorTo: indigo
 sdk: streamlit
-emoji: 🐢
-colorFrom: purple
-colorTo: purple
-short_description: Search Engine with LLM
+app_file: app.py
+pinned: false
 ---
+
